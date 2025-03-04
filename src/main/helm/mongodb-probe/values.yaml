@@ -1,0 +1,23 @@
+image:
+  repository: your-registry/spring-mongo-demo
+  tag: 0.0.1-SNAPSHOT
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+mongodb:
+  host: mongodb-service
+  port: 27017
+  database: mydb
+  username: admin
+  # password should be in secrets
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi
