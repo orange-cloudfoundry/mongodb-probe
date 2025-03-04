@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: ${vcap.services.mongodb-service.credentials.uri}
+server:
+  port: 8080
