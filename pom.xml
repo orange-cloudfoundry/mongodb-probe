@@ -119,36 +119,36 @@
             </plugin>
             
             <!-- Helm Maven Plugin -->
-            <plugin>
-				<groupId>io.kokuwa.maven</groupId>
-				<artifactId>helm-maven-plugin</artifactId>
-                <version>${helm-maven-plugin.version}</version>
-                <configuration>
-                    <chartDirectory>${project.basedir}/src/main/helm</chartDirectory>
-                    <chartVersion>${helm.chart.version}</chartVersion>
-                    <outputDirectory>${project.build.directory}/helm</outputDirectory>
-                    <helmVersion>3.8.2</helmVersion>
-                    <skipInit>false</skipInit>
-                    <skipLint>false</skipLint>
-                    <skipPackage>false</skipPackage>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>helm-lint</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>lint</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>helm-package</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>package</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--				<groupId>io.kokuwa.maven</groupId>-->
+<!--				<artifactId>helm-maven-plugin</artifactId>-->
+<!--                <version>${helm-maven-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <chartDirectory>${project.basedir}/src/main/helm</chartDirectory>-->
+<!--                    <chartVersion>${helm.chart.version}</chartVersion>-->
+<!--                    <outputDirectory>${project.build.directory}/helm</outputDirectory>-->
+<!--                    <helmVersion>3.8.2</helmVersion>-->
+<!--                    <skipInit>false</skipInit>-->
+<!--                    <skipLint>false</skipLint>-->
+<!--                    <skipPackage>false</skipPackage>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>helm-lint</id>-->
+<!--                        <phase>verify</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>lint</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>helm-package</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>package</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
             
             
