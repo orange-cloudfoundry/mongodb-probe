@@ -1,6 +1,35 @@
 spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  data:
+    mongodb:
+      uri: mongodb://admin:password@localhost:27017/mydb
+#      host: localhost
+#      port: 27017
+#      database: mydb
+#      username: admin
+#      password: password
+#      authentication-database: admin
+
+---
+spring:
+  config:
+    activate:
+      on-profile: cloud
   data:
     mongodb:
       uri: ${vcap.services.mongodb-service.credentials.uri}
-server:
-  port: 8080
+---
+spring:
+  config:
+    activate:
+      on-profile: k8s
+  data:
+    mongodb:
+      uri: ${vcap.services.mongodb-service.credentials.uri}
