@@ -21,7 +21,14 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.7</spring-cloud.version>
-    </properties>
+        
+	    <docker.image.prefix>ghcr.io/${github.repository}</docker.image.prefix>
+	    
+        <!-- Previous properties -->
+        <helm.chart.name>${project.artifactId}</helm.chart.name>
+        <helm.chart.version>${project.version}</helm.chart.version>
+        <helm-maven-plugin.version>6.17.0</helm-maven-plugin.version>	</properties>
+
 
     <dependencies>
         <!-- Spring Boot Starters -->
@@ -92,12 +99,16 @@
         </dependencies>
     </dependencyManagement>
 
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+					<image>
+	                    <name>${docker.image.prefix}/${project.artifactId}</name>
+					</image>    
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -106,6 +117,41 @@
                     </excludes>
                 </configuration>
             </plugin>
+            
+            <!-- Helm Maven Plugin -->
+            <plugin>
+				<groupId>io.kokuwa.maven</groupId>
+				<artifactId>helm-maven-plugin</artifactId>
+                <version>${helm-maven-plugin.version}</version>
+                <configuration>
+                    <chartDirectory>${project.basedir}/src/main/helm</chartDirectory>
+                    <chartVersion>${helm.chart.version}</chartVersion>
+                    <outputDirectory>${project.build.directory}/helm</outputDirectory>
+                    <helmVersion>3.8.2</helmVersion>
+                    <skipInit>false</skipInit>
+                    <skipLint>false</skipLint>
+                    <skipPackage>false</skipPackage>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>helm-lint</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>lint</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>helm-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            
+            
         </plugins>
     </build>
 
