@@ -25,6 +25,8 @@ spring:
   data:
     mongodb:
       uri: ${vcap.services.mongodb-service.credentials.uri}
+#      OTEL_SERVICE_NAME: 'graal-native-example-app'
+#      OTEL_EXPORTER_OTLP_ENDPOINT: 'http://collector:4318'
 ---
 spring:
   config:
