@@ -12,10 +12,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.example</groupId>
-    <artifactId>spring-mongo-demo</artifactId>
+    <groupId>com.orange.innov.xaas.mongodb</groupId>
+    <artifactId>mongodb-probe</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-mongo-demo</name>
+    <name>mongodb-probe</name>
     <description>Spring Boot MongoDB Demo for Cloud Foundry</description>
 
     <properties>
