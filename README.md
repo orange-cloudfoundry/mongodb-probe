@@ -10,7 +10,7 @@ Generated with Claude Sonet 3.5
 
 references:
 - https://github.com/kokuwaio/helm-maven-plugin
-
+- https://opentelemetry.io/blog/2024/spring-starter-stable/
 
 
 
