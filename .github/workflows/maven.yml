@@ -50,9 +50,18 @@ jobs:
         docker tag ${DOCKER_IMAGE}:${{ github.sha }} ${DOCKER_IMAGE}:latest
         docker push ${DOCKER_IMAGE}:latest
 
-    - name: Package Helm Chart
-      run: mvn helm:package
-
+    - name: Chart | Push
+      uses: appany/helm-oci-chart-releaser@v0.3.0
+      with:
+        name: mongodb-probe-chart
+        repository: ${DOCKER_IMAGE}-chart
+        tag: 0.0.1
+        path: chart/mongodb-probe # Default charts/{name}
+        registry: ghcr.io
+        registry_username: ${{ secrets.REGISTRY_USERNAME }}
+        registry_password: ${{ secrets.REGISTRY_PASSWORD }}
+        update_dependencies: 'false' # Defaults to false
+    
     - name: Cache Maven packages
       uses: actions/cache@v4
       with:
@@ -66,4 +75,4 @@ jobs:
         name: Package
         path: |
           target/*.jar
-          target/helm/*.tgz
+
