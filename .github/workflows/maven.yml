@@ -34,7 +34,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build with Maven and Push Image
+    - name: Build with Maven, package as OCI Image with CNB
       env:
         DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       run: |
@@ -65,8 +65,8 @@ jobs:
         tag: 0.0.1
         path: chart/mongodb-probe # Default charts/{name}
         registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        registry_username: ${{ github.actor }}
+        registry_password: ${{ secrets.GITHUB_TOKEN }}
         update_dependencies: 'false' # Defaults to false
     
 
