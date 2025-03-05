@@ -39,8 +39,7 @@ jobs:
         DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       run: |
         mvn spring-boot:build-image \
-        -Dspring-boot.build-image.imageName=${DOCKER_IMAGE}:${{ github.sha }} \
-        -Dspring-boot.build-image.publish=true
+        -Dspring-boot.build-image.imageName=${DOCKER_IMAGE}:${{ github.sha }}
 
     - name: Tag latest
       if: github.ref == 'refs/heads/main'
