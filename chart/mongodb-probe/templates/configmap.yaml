@@ -1,0 +1,22 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongodb-probe-config
+data:
+  application.properties: |
+    spring.profiles.active=k8s
+    management.otlp.tracing.endpoint=http://collector:4317
+    management.tracing.sampling.probability=1.0
+    spring.application.name=my-service
+
+#          env: 
+#          - name: SPRING_PROFILES_ACTIVE
+#            value: k8s
+#          - name: SPRING_DATA_MONGODB_HOST
+#            value: {{ .Values.mongodb.host }}
+#          - name: SPRING_DATA_MONGODB_PORT
+#            value: "{{ .Values.mongodb.port }}"
+#          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+#            value: "http://otel-collector:4317"
+#    
