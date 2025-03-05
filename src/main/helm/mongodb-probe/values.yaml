@@ -21,3 +21,7 @@ resources:
   requests:
     cpu: 500m
     memory: 512Mi
+
+    
+    
+#TODO: set env SPRING_PROFILES_ACTIVE=k8s
