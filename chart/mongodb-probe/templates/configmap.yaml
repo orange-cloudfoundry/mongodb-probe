@@ -6,9 +6,9 @@ metadata:
 data:
   application.properties: |
     spring.profiles.active=k8s
-    management.otlp.tracing.endpoint=http://collector:4317
-    management.tracing.sampling.probability=1.0
-    spring.application.name=my-service
+    management.otlp.tracing.endpoint={{ .Values.otlp.tracing.endpoint }}
+    management.tracing.sampling.probability={{ .Values.otlp.tracing.sampling.probability }}
+    spring.application.name={{ .Values.otlp.serviceName }}
 
 #          env: 
 #          - name: SPRING_PROFILES_ACTIVE

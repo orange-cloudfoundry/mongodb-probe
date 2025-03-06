@@ -93,9 +93,11 @@ volumeMounts:
 - name: config
   mountPath: /workspace/config
 
+# Additional env vars
+envs: []
 # - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+#   value: "bar"
+
 
 nodeSelector: {}
 
@@ -104,10 +106,17 @@ tolerations: []
 affinity: {}
 
 
+#probe specific default values
 mongodb:
   host: mongodb-service
   port: 27017
   database: mydb
   username: admin
   # password should be in secrets
+otlp:
+   serviceName: my-service
+   tracing:
+      endpoint: http://collector:4317  
+      sampling:
+         probability: 1.0
 

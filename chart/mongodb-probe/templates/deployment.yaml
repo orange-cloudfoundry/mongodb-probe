@@ -55,15 +55,11 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
 
-          env: 
-          - name: SPRING_PROFILES_ACTIVE
-            value: k8s
-          - name: SPRING_DATA_MONGODB_HOST
-            value: {{ .Values.mongodb.host }}
-          - name: SPRING_DATA_MONGODB_PORT
-            value: "{{ .Values.mongodb.port }}"
-          - name: OTEL_EXPORTER_OTLP_ENDPOINT
-            value: "http://otel-collector:4317"
+          {{- with .Values.envs }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+
           
       {{- with .Values.volumes }}
       volumes:
