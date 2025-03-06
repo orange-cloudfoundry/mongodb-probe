@@ -3,16 +3,6 @@ spring:
     active: ${SPRING_PROFILES_ACTIVE:local}
 
 ---
-otel:
-  traces:
-    exporter: otlp
-  logs:
-    exporter: none
-  metrics:
-    exporter: none
-#      OTEL_SERVICE_NAME: 'graal-native-example-app'
-
-
 
 logging:
   level:
@@ -38,6 +28,13 @@ spring:
 
 # see https://opentelemetry.io/docs/languages/java/configuration/
 otel:
+  traces:
+    exporter: otlp
+  logs:
+    exporter: none
+  metrics:
+    exporter: none
+#      OTEL_SERVICE_NAME: 'graal-native-example-app'
   exporter:
     otlp:
       protocol: http/protobuf
@@ -57,6 +54,12 @@ spring:
     mongodb:
       uri: ${vcap.services.mongodb-service.credentials.uri}
 otel:
+  traces:
+    exporter: otlp
+  logs:
+    exporter: none
+  metrics:
+    exporter: none
   exporter:
     oltp:
       endpoint: ${vcap.services.observability-service.credentials.jaegerCollectorHost}
@@ -65,3 +68,12 @@ spring:
   config:
     activate:
       on-profile: k8s
+otel:
+  traces:
+    exporter: otlp
+  logs:
+    exporter: none
+  metrics:
+    exporter: none
+
+      
