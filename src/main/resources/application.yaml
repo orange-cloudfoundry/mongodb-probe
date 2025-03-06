@@ -18,21 +18,18 @@ spring:
 #      authentication-database: admin
 
 
-# Traces-specific OpenTelemetry configuration
-otlp:
- tracing:
-   endpoint: http://jaeger:4318/v1/traces
-
+# see https://opentelemetry.io/docs/languages/java/configuration/
 otel:
   traces:
     exporter: otlp
-  export:
+  exporter:
     otlp:
-      protocol: http
-      host: jaeger-303ada4c-4478-49dd-b427-8c482bfc17b8
-      port: 443
-      headers:
-        Authorization: Bearer your-token    
+      endpoint: http://jaeger:4318/v1/traces
+#      protocol: http
+#      host: jaeger-303ada4c-4478-49dd-b427-8c482bfc17b8
+#      port: 443
+#      headers:
+#        Authorization: Bearer your-token    
 
 logging:
   level:
