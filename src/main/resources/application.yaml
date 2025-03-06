@@ -58,6 +58,3 @@ spring:
   config:
     activate:
       on-profile: k8s
-  data:
-    mongodb:
-      uri: ${vcap.services.mongodb-service.credentials.uri}
