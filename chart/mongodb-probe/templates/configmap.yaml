@@ -6,6 +6,7 @@ metadata:
 data:
   application.properties: |
     spring.profiles.active=k8s
+    spring.data.mongodb.uri={{ .Values.mongodb.uri }}
     management.otlp.tracing.endpoint={{ .Values.otlp.tracing.endpoint }}
     management.tracing.sampling.probability={{ .Values.otlp.tracing.sampling.probability }}
     spring.application.name={{ .Values.otlp.serviceName }}

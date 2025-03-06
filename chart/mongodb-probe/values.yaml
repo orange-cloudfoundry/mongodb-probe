@@ -108,11 +108,8 @@ affinity: {}
 
 #probe specific default values
 mongodb:
-  host: mongodb-service
-  port: 27017
-  database: mydb
-  username: admin
-  # password should be in secrets
+  uri: mongodb://admin:password@localhost:27017/mydb 
+
 otlp:
    serviceName: my-service
    tracing:
