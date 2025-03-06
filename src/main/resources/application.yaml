@@ -22,9 +22,15 @@ spring:
 otel:
   traces:
     exporter: otlp
+  logs:
+    exporter: none
+  metrics:
+    exporter: none
+        
   exporter:
     otlp:
-      endpoint: http://jaeger:4318/v1/traces
+      protocol: http/protobuf
+      endpoint: http://jaeger-collector:443/v1/traces
 #      protocol: http
 #      host: jaeger-303ada4c-4478-49dd-b427-8c482bfc17b8
 #      port: 443
