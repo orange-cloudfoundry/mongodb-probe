@@ -1,4 +1,4 @@
-package mongodb.xaas.innov.orange.com;
+package com.orange.innov.xaas.mongodb;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

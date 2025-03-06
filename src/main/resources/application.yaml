@@ -18,6 +18,11 @@ spring:
 #      authentication-database: admin
 
 
+# Traces-specific OpenTelemetry configuration
+otlp:
+ tracing:
+   endpoint: http://jaeger:4318/v1/traces
+
 otel:
   traces:
     exporter: otlp
