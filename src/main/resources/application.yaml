@@ -17,6 +17,24 @@ spring:
 #      password: password
 #      authentication-database: admin
 
+
+otel:
+  traces:
+    exporter: otlp
+  export:
+    otlp:
+      protocol: http
+      host: jaeger-303ada4c-4478-49dd-b427-8c482bfc17b8
+      port: 443
+      headers:
+        Authorization: Bearer your-token    
+
+logging:
+  level:
+    io.opentelemetry: DEBUG
+    org.springframework.boot.env: DEBUG
+    org.springframework.context: DEBUG
+
 ---
 spring:
   config:
