@@ -7,9 +7,14 @@ data:
   application.properties: |
     spring.profiles.active=k8s
     spring.data.mongodb.uri={{ .Values.mongodb.uri }}
+    otel.logs.exporter=none
+    otel.metrics.exporter=none
+    
     otel.exporter.otlp.endpoint={{ .Values.otlp.tracing.endpoint }}
    
     spring.application.name={{ .Values.otlp.serviceName }}
+
+
 
 #    management.tracing.sampling.probability={{ .Values.otlp.tracing.sampling.probability }}
 #          env: 
