@@ -47,5 +47,11 @@ helm template oci://ghcr.io/poblin-orange/mongodb-probe/mongodb-probe --version 
 testing probe REST API:
 ```
 
+curl -X POST http://localhost:8080/api/persons -H 'Content-type:application/json' -d '{"name": "titi", "role": "xx"}'
+curl -X POST http://localhost:8080/api/persons -H 'Content-type:application/json' -d '{"name": "toto", "role": "xx"}'
+curl http://localhost:8080/api/persons | jq .
+
+
+
 ```
 
