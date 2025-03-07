@@ -67,6 +67,7 @@ jobs:
         registry: ${{ env.REGISTRY }}
         registry_username: ${{ github.actor }}
         registry_password: ${{ secrets.GITHUB_TOKEN }}
+        update_dependencies: "true" # Defaults to false
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
