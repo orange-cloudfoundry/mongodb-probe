@@ -49,6 +49,7 @@ spec:
             periodSeconds: 15              
               
           readinessProbe:
+            httpGet:          
               path: /actuator/health  # Use the default health endpoint for liveness
               port: http
             initialDelaySeconds: 10
