@@ -52,7 +52,7 @@ jobs:
     - name: Tag latest
       if: github.ref == 'refs/heads/main'
       env:
-        DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-app
       run: |
         docker tag ${DOCKER_IMAGE}:${{ github.sha }} ${DOCKER_IMAGE}:latest
         docker push ${DOCKER_IMAGE}:latest
