@@ -40,10 +40,14 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+              
           livenessProbe:
             httpGet:
-              path: /
+              path: /actuator/health  # Use the default health endpoint for liveness
               port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15              
+              
           readinessProbe:
             httpGet:
               path: /
