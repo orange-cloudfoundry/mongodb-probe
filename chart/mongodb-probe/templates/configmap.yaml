@@ -11,6 +11,6 @@ data:
     otel.metrics.exporter=none
     
     otel.exporter.otlp.endpoint={{ .Values.otlp.tracing.endpoint }}
-    otel.service.name={{ .Values.otlp.tracing.endpoint }}
+    otel.service.name={{ .Values.otlp.serviceName }}
     spring.application.name={{ .Values.otlp.serviceName }}
 
