@@ -11,19 +11,6 @@ data:
     otel.metrics.exporter=none
     
     otel.exporter.otlp.endpoint={{ .Values.otlp.tracing.endpoint }}
-   
+    otel.service.name={{ .Values.otlp.tracing.endpoint }}
     spring.application.name={{ .Values.otlp.serviceName }}
 
-
-
-#    management.tracing.sampling.probability={{ .Values.otlp.tracing.sampling.probability }}
-#          env: 
-#          - name: SPRING_PROFILES_ACTIVE
-#            value: k8s
-#          - name: SPRING_DATA_MONGODB_HOST
-#            value: {{ .Values.mongodb.host }}
-#          - name: SPRING_DATA_MONGODB_PORT
-#            value: "{{ .Values.mongodb.port }}"
-#          - name: OTEL_EXPORTER_OTLP_ENDPOINT
-#            value: "http://otel-collector:4317"
-#    

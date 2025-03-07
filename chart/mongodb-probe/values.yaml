@@ -111,7 +111,7 @@ mongodb:
   uri: mongodb://admin:password@localhost:27017/mydb 
 
 otlp:
-   serviceName: my-service
+   serviceName: probe-for-mongodb
    tracing:
       endpoint: http://collector:4317  
       sampling:
