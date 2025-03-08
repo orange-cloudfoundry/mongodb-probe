@@ -1,5 +1,5 @@
 # MongoDb probe app
-![Build Status](https://github.com/poblin-orange/mongodb-probe/actions/workflows/maven.yml/badge.svg)
+![Build Status](https://github.com/orange-cloudfoundry/mongodb-probe/actions/workflows/maven.yml/badge.svg)
 
 ## Description
 
@@ -40,7 +40,7 @@ install OCI chart:
 
 ```
 
-helm template oci://ghcr.io/poblin-orange/mongodb-probe/mongodb-probe --version 0.0.1 -f ./mongodb-probe-values.yaml  | kubectl apply -f -
+helm install mongodb-probe  oci://ghcr.io/orange-cloudfoundry/mongodb-probe/mongodb-probe -f ./mongodb-probe-values.yaml
 
 ``` 
 
