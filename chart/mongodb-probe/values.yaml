@@ -79,30 +79,21 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes:
-- name: config
-  configMap:
-    name: mongodb-probe-config
-    
-- name: tls
-  secret:
-    secretName: {{ .Values.mongodb.tlsSecretname }}
-    optional: false
+volumes: []
+#- name: config
+#  configMap:
+#    name: mongodb-probe-config
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-- name: config
-  mountPath: /workspace/config
+volumeMounts: []
+#- name: config
+#  mountPath: /workspace/config
   
-- name: tls
-  mountPath: /workspace/config/tls
-  readOnly: true
 
 # Additional env vars
 envs: []
 # - name: foo
 #   value: "bar"
-
 
 nodeSelector: {}
 
@@ -112,7 +103,7 @@ affinity: {}
 
 #probe specific default values
 mongodb:
-  tlsSecretname: mysecret
+  tlsSecretName: mysecret
   tlsSecretCaKey: ca.crt
 
   uri: mongodb://admin:password@localhost:27017/mydb 

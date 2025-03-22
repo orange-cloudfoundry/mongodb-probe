@@ -8,8 +8,7 @@ data:
     spring.profiles.active=k8s
     
     spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=true
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/{{ .Values.mongodb.tlsSecretCaKey }}
-    #spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.private-key=file:/workspace/config/...    
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ .Values.mongodb.tlsSecretCaKey }}
     
     spring.data.mongodb.uri={{ .Values.mongodb.uri }}
     spring.data.mongodb.ssl.enabled=true
