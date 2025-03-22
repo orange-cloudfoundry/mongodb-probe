@@ -47,8 +47,8 @@ helm install mongodb-probe  oci://ghcr.io/orange-cloudfoundry/mongodb-probe/mong
 testing probe REST API:
 ```
 
-curl -X POST http://localhost:8080/api/persons -H 'Content-type:application/json' -d '{"name": "titi", "role": "xx"}'
-curl -X POST http://localhost:8080/api/persons -H 'Content-type:application/json' -d '{"name": "toto", "role": "xx"}'
+curl -X POST http://localhost:8080/api/persons -H 'Content-type:application/json' -d '{"name": "titi", "age": "30"}'
+curl -X POST http://localhost:8080/api/persons -H 'Content-type:application/json' -d '{"name": "toto", "age": "35"}'
 curl http://localhost:8080/api/persons | jq .
 
 
