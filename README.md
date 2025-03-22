@@ -25,7 +25,9 @@ chart values.yaml:
 ```
 mongodb:
   uri: mongodb://databaseAdmin:yyyy.zzzz:27017,rs0-1-2e385b67-a1c9-4aa0-910d-b25dc99e9c5d.zzzz:27017,rs0-2-2e385b67-a1c9-4aa0-910d-b25dc99e9c5d.zzzz:27017/admin?replicaSet=rs0
-
+  tlsSecretName: mysecret
+  tlsSecretCaKey: ca.crt
+  
 otlp:
   serviceName: probe-for-mongodb
   tracing:
