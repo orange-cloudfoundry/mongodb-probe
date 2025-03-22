@@ -8,8 +8,8 @@ data:
     spring.profiles.active=k8s
     
     spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=true
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.certificate=file:/workspace/config/tls.crt
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.private-key=file:/workspace/config/tls.key    
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/{{ .Values.mongodb.tlsSecretCaKey }}
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.private-key=file:/workspace/config/{{ .Values.mongodb.tlsCertKey }}    
     
     spring.data.mongodb.uri={{ .Values.mongodb.uri }}
     spring.data.mongodb.ssl.enabled=true
@@ -21,4 +21,3 @@ data:
     otel.exporter.otlp.endpoint={{ .Values.otlp.tracing.endpoint }}
     otel.service.name={{ .Values.otlp.serviceName }}
     spring.application.name={{ .Values.otlp.serviceName }}
-

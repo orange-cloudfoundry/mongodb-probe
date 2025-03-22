@@ -83,15 +83,20 @@ volumes:
 - name: config
   configMap:
     name: mongodb-probe-config
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+    
+- name: tls
+  secret:
+    secretName: {{ .Values.mongodb.tlsSecretname }}
+    optional: false
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
 - name: config
   mountPath: /workspace/config
+  
+- name: tls
+  mountPath: /workspace/config/tls
+  readOnly: true
 
 # Additional env vars
 envs: []
@@ -105,9 +110,11 @@ tolerations: []
 
 affinity: {}
 
-
 #probe specific default values
 mongodb:
+  tlsSecretname: mysecret
+  tlsSecretCaKey: ca.crt
+  tlsCertKey: tls.crt
   uri: mongodb://admin:password@localhost:27017/mydb 
 
 otlp:
