@@ -114,7 +114,7 @@ affinity: {}
 mongodb:
   tlsSecretname: mysecret
   tlsSecretCaKey: ca.crt
-  tlsCertKey: tls.crt
+
   uri: mongodb://admin:password@localhost:27017/mydb 
 
 otlp:
