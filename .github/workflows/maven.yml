@@ -55,7 +55,7 @@ jobs:
         DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-app
       run: |
         docker tag ${DOCKER_IMAGE}:${{ github.sha }} ${DOCKER_IMAGE}:0.0.2
-        docker push ${DOCKER_IMAGE}:latest
+        docker push ${DOCKER_IMAGE}:0.0.2
 
     - name: Chart | Push
       uses: appany/helm-oci-chart-releaser@v0.4.2
