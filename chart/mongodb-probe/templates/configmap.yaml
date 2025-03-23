@@ -10,9 +10,17 @@ data:
     spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=true
     spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ .Values.mongodb.tlsSecretCaKey }}
     
-    spring.data.mongodb.uri={{ .Values.mongodb.uri }}
+    
     spring.data.mongodb.ssl.enabled=true
     spring.data.mongodb.ssl.bundle=mongodb-ssl-bundle
+    
+    #spring.data.mongodb.uri=.Values.mongodb.uri
+    
+    spring.data.mongodb.host={{ .Values.mongodb.host }}
+    spring.data.mongodb.port={{ .Values.mongodb.port }}
+    spring.data.mongodb.username={{ .Values.mongodb.username }}
+    spring.data.mongodb.password={{ .Values.mongodb.password }}
+    spring.data.mongodb.database={{ .Values.mongodb.database }}
     
     otel.logs.exporter=none
     otel.metrics.exporter=none
