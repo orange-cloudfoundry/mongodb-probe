@@ -54,7 +54,7 @@ jobs:
       env:
         DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-app
       run: |
-        docker tag ${DOCKER_IMAGE}:${{ github.sha }} ${DOCKER_IMAGE}:latest
+        docker tag ${DOCKER_IMAGE}:${{ github.sha }} ${DOCKER_IMAGE}:0.0.2
         docker push ${DOCKER_IMAGE}:latest
 
     - name: Chart | Push
