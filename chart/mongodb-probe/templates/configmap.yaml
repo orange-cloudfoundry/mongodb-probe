@@ -20,3 +20,8 @@ data:
     otel.exporter.otlp.endpoint={{ .Values.otlp.tracing.endpoint }}
     otel.service.name={{ .Values.otlp.serviceName }}
     spring.application.name={{ .Values.otlp.serviceName }}
+
+    logging.level.org.springframework.boot.autoconfigure.ssl=debug
+    logging.level.org.springframework.boot.ssl=debug
+    logging.level.org.mongodb=debug
+    
