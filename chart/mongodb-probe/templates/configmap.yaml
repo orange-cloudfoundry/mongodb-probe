@@ -32,4 +32,4 @@ data:
     logging.level.org.springframework.boot.autoconfigure.ssl=debug
     logging.level.org.springframework.boot.ssl=debug
     logging.level.org.mongodb=debug
-    
+    logging.level.org.springframework.data.mongodb=debug
