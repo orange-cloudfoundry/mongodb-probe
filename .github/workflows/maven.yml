@@ -39,6 +39,7 @@ jobs:
         DOCKER_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-app
       run: |
         mvn spring-boot:build-image \
+        -Dspring-boot.build-image.jvm-version=17 \
         -Dspring-boot.build-image.imageName=${DOCKER_IMAGE}:${{ github.sha }} \
         -Dspring-boot.build-image.publish=false
 
