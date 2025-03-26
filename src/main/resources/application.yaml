@@ -53,6 +53,7 @@ spring:
   data:
     mongodb:
       uri: ${vcap.services.mongodb-service.credentials.uri}
+      
 otel:
   traces:
     exporter: otlp
@@ -61,7 +62,7 @@ otel:
   metrics:
     exporter: none
   exporter:
-    oltp:
+    otlp:
       endpoint: ${vcap.services.observability-service.credentials.jaegerCollectorHost}
 ---
 spring:
