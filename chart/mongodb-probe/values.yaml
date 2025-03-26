@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/orange-cloudfoundry/mongodb-probe-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.0.4"
+  tag: "0.0.5"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -105,6 +105,7 @@ affinity: {}
 mongodb:
   tlsSecretName: mysecret
   tlsSecretCaKey: ca.crt
+  tlsSecretCertificate: tls.crt
   database: mydb
   host: localhost
   port: '27017'  

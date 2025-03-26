@@ -9,7 +9,7 @@ data:
     
     spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=true
     spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ .Values.mongodb.tlsSecretCaKey }}
-    
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.certificate=file:/workspace/config/tls/{{ .Values.mongodb.tlsSecretCertificate }}    
     
     spring.data.mongodb.ssl.enabled=true
     spring.data.mongodb.ssl.bundle=mongodb-ssl-bundle
