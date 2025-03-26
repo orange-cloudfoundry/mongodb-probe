@@ -105,7 +105,7 @@ affinity: {}
 mongodb:
   tlsSecretName: mysecret
   tlsSecretCaKey: ca.crt
-  tlsSecretCertificate: tls.crt
+ #tlsSecretCertificate: tls.crt
   database: mydb
   host: localhost
   port: '27017'  

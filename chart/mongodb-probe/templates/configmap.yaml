@@ -7,14 +7,23 @@ data:
   application.properties: |
     spring.profiles.active=k8s
     
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=true
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ .Values.mongodb.tlsSecretCaKey }}
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.certificate=file:/workspace/config/tls/{{ .Values.mongodb.tlsSecretCertificate }}    
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=false
+    
+    
+    {{- with .Values.mongodb.tlsSecretCaKey }}
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ . }}
+    {{- end }}
+    
+    {{- with .Values.mongodb.tlsSecretCertificate }}
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.certificate=file:/workspace/config/tls/{{ . }}    
+    {{- end }}
     
     spring.data.mongodb.ssl.enabled=true
     spring.data.mongodb.ssl.bundle=mongodb-ssl-bundle
-    
-    #spring.data.mongodb.uri=.Values.mongodb.uri
+
+    {{- with .Values.mongodb.uri }}
+    spring.data.mongodb.uri={{ . }}
+    {{- end }}
     
     spring.data.mongodb.host={{ .Values.mongodb.host }}
     spring.data.mongodb.port={{ .Values.mongodb.port }}
