@@ -4,11 +4,15 @@ applications:
 - name: mongodb-probe
   memory: 900M
   instances: 2
+  services:
+    - mongodb-service
   buildpacks:
   - java_buildpack_v4_76_0
+  health-check-type: http
+  health-check-http-endpoint: /actuator/health
+  
   env:
-    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
     SPRING_DATA_MONGODB_URI: mongodb://xxx:yyy@rs0-0-mongo-server:27017,rs0-1-mongo-server:27017,rs0-2-mongo-server:27017/db?replicaSet=rs0&tls=true
     OTEL_SERVICE_NAME: mongodb-probe-cf
     OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger-collector-otel-server:443
-
