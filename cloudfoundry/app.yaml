@@ -1,7 +1,7 @@
 ---
 version: 1
 applications:
-- name: po-mongodb-probe
+- name: mongodb-probe
   memory: 900M
   instances: 2
   buildpacks:

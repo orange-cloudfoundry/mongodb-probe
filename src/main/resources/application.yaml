@@ -10,6 +10,11 @@ logging:
     org.springframework.boot.env: DEBUG
     org.springframework.context: DEBUG
 
+spring:
+  data:
+    mongodb:
+      ssl-enabled: true
+
 ---
 spring:
   config:

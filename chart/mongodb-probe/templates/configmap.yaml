@@ -10,13 +10,25 @@ data:
     spring.ssl.bundle.pem.mongodb-ssl-bundle.reload-on-update=false
     
     
-    {{- with .Values.mongodb.tlsSecretCaKey }}
+    {{- with .Values.mongodb.tlsCa }}
     spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ . }}
     {{- end }}
     
-    {{- with .Values.mongodb.tlsSecretCertificate }}
-    spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.certificate=file:/workspace/config/tls/{{ . }}    
+    {{- with .Values.mongodb.tlsCert }}
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.certificate=file:/workspace/config/tls/{{ . }}    
     {{- end }}
+
+    {{- with .Values.mongodb.tlsKey }}
+    spring.ssl.bundle.pem.mongodb-ssl-bundle.truststore.private-key=file:/workspace/config/tls/{{ . }}    
+    {{- end }}
+
+
+    
+    #spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.certificate=file:/workspace/config/tls/tlsCertFile
+    #spring.ssl.bundle.pem.mongodb-ssl-bundle.keystore.private-key=file:/workspace/config/tls/tlsKeyFile
+    
+    
+    
     
     spring.data.mongodb.ssl.enabled=true
     spring.data.mongodb.ssl.bundle=mongodb-ssl-bundle
