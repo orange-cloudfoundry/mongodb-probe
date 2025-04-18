@@ -57,7 +57,25 @@ spring:
       on-profile: cloud
   data:
     mongodb:
-      uri: ${vcap.services.mongodb-service.credentials.uri}
+     #uri: ${vcap.services.mongodb-service.credentials.uri}
+     #cassandra.contact-points=#{ cfEnv.findCredentialsByTag('cassandra').get('node_ips') }     
+      uri: #{ cfEnv.findCredentialsByTag('mongodb').get('uri')
+  ssl:
+    bundle:
+      pem:
+        mongodb-ssl-bundle:
+          reload-on-update: false
+          truststore:
+            certificate: #{ cfEnv.findCredentialsByTag('mongodb').get('tlsCert') }
+            private-key: #{ cfEnv.findCredentialsByTag('mongodb').get('tlsKey') }
+            
+
+#certificate: ${VCAP_SERVICES[mongodb-service][0].credentials.tlsCert}
+#private-key: ${VCAP_SERVICES[mongodb-service][0].credentials.tlsKey}
+
+# In application.properties format:
+# spring.ssl.bundle.pem.clientbundle.truststore.certificate=${VCAP_SERVICES[your-service-name][0].credentials.certificate}
+# spring.ssl.bundle.pem.clientbundle.truststore.private-key=${VCAP_SERVICES[your-service-name][0].credentials.private_key}      
       
 otel:
   traces:
