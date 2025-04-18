@@ -17,6 +17,8 @@ Packaged as:
 - https://github.com/kokuwaio/helm-maven-plugin
 - https://opentelemetry.io/blog/2024/spring-starter-stable/
 - https://opentelemetry.io/docs/languages/java/configuration/
+- https://github.com/pivotal-cf/java-cfenv/blob/main/java-cfenv-boot/src/main/java/io/pivotal/cfenv/spring/boot/MongoCfEnvProcessor.java
+- https://docs.spring.io/spring-boot/appendix/application-properties/index.html#application-properties.data.spring.data.mongodb.database
 
 ## basic tests
 
