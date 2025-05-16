@@ -15,4 +15,19 @@ applications:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 21.+ } }'
     SPRING_DATA_MONGODB_URI: mongodb://xxx:yyy@rs0-0-mongo-server:27017,rs0-1-mongo-server:27017,rs0-2-mongo-server:27017/db?replicaSet=rs0&tls=true
     OTEL_SERVICE_NAME: mongodb-probe-cf
+    OTEL_TRACES_EXPORTER: otlp
+    OTEL_LOGS_EXPORTER: none
+    OTEL_METRICS_EXPORTER: none
+    
+    #TODO: replace with cfEnv binding
     OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger-collector-otel-server:443
+
+
+    #for troubleshooting purpose
+    LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_BOOT_AUTOCONFIGURE_SSL: DEBUG
+    LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_BOOT_SSL: DEBUG
+    LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_DATA_MONGODB: DEBUG    
+    LOGGING_LEVEL_ORG_MONGODB: DEBUG
+    JAVA_OPTS:  -Djdk.tls.client.protocols=TLSv1.2 -Djavax.net.debug=SSL,handshake,verbose,trustmanager
+
+    
